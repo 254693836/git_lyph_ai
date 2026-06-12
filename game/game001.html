@@ -549,6 +549,8 @@
     function updateBullets(dt) {
       for (let i = bullets.length - 1; i >= 0; i--) {
         const bullet = bullets[i];
+        if (!bullet) continue;
+
         const d = dirs[bullet.dir];
         bullet.x += d.x * bullet.speed * dt;
         bullet.y += d.y * bullet.speed * dt;
@@ -598,13 +600,17 @@
           continue;
         }
 
+        let bulletCancelled = false;
         for (let j = bullets.length - 1; j >= 0; j--) {
           if (j !== i && bullets[j] && bullets[j].owner !== bullet.owner && rectsOverlap(bullet, bullets[j])) {
+            effects.push({ x: bullet.x + bullet.w / 2, y: bullet.y + bullet.h / 2, life: 0.18, color: "#f7e7a4" });
             bullets.splice(Math.max(i, j), 1);
             bullets.splice(Math.min(i, j), 1);
+            bulletCancelled = true;
             break;
           }
         }
+        if (bulletCancelled) continue;
       }
     }
 
