@@ -1,0 +1,39 @@
+{
+  "requests": [
+    {
+      "requestNo": "REQ-2026-0001",
+      "status": "00",
+      "content": "PC購入申請",
+      "applicant": "山田 太郎",
+      "approver": "佐藤 花子"
+    },
+    {
+      "requestNo": "REQ-2026-0002",
+      "status": "01",
+      "content": "出張交通費申請",
+      "applicant": "鈴木 一郎",
+      "approver": "田中 次郎"
+    },
+    {
+      "requestNo": "REQ-2026-0003",
+      "status": "02",
+      "content": "備品購入申請",
+      "applicant": "高橋 美咲",
+      "approver": "佐藤 花子"
+    }
+  ],
+  "statusOptions": [
+    {
+      "key": "00",
+      "text": "新規"
+    },
+    {
+      "key": "01",
+      "text": "承認済"
+    },
+    {
+      "key": "02",
+      "text": "却下"
+    }
+  ]
+}

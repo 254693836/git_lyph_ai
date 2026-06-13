@@ -1,0 +1,78 @@
+<mvc:View
+  controllerName="request.management.controller.List"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns:core="sap.ui.core"
+  xmlns="sap.m">
+  <Page title="申請管理" showHeader="true" enableScrolling="false">
+    <headerContent>
+      <Button text="新規" type="Emphasized" icon="sap-icon://add" press=".onCreate" />
+    </headerContent>
+    <content>
+      <VBox class="sapUiResponsiveContentPadding rmPageContent" renderType="Bare">
+        <HBox class="rmFilterBar sapUiSmallMarginBottom" renderType="Bare">
+          <VBox class="rmFilterItem">
+            <Label text="申請番号" labelFor="requestNoFilter" />
+            <Input id="requestNoFilter" value="{filters>/requestNo}" placeholder="例: REQ-2026" submit=".onSearch" />
+          </VBox>
+          <VBox class="rmFilterItem">
+            <Label text="ステータス" labelFor="statusFilter" />
+            <Select id="statusFilter" selectedKey="{filters>/status}">
+              <core:Item key="" text="すべて" />
+              <core:Item key="00" text="新規" />
+              <core:Item key="01" text="承認済" />
+              <core:Item key="02" text="却下" />
+            </Select>
+          </VBox>
+          <VBox class="rmFilterItem">
+            <Label text="申請内容" labelFor="contentFilter" />
+            <Input id="contentFilter" value="{filters>/content}" submit=".onSearch" />
+          </VBox>
+          <VBox class="rmFilterItem">
+            <Label text="申請者" labelFor="applicantFilter" />
+            <Input id="applicantFilter" value="{filters>/applicant}" submit=".onSearch" />
+          </VBox>
+          <VBox class="rmFilterItem">
+            <Label text="承認者" labelFor="approverFilter" />
+            <Input id="approverFilter" value="{filters>/approver}" submit=".onSearch" />
+          </VBox>
+          <Button text="検索" icon="sap-icon://search" press=".onSearch" />
+        </HBox>
+
+        <Table
+          id="requestsTable"
+          mode="SingleSelectMaster"
+          itemPress=".onItemPress"
+          items="{requests>/requests}">
+          <columns>
+            <Column minScreenWidth="Tablet" demandPopin="true">
+              <Text text="申請番号" />
+            </Column>
+            <Column width="8rem">
+              <Text text="ステータス" />
+            </Column>
+            <Column>
+              <Text text="申請内容" />
+            </Column>
+            <Column minScreenWidth="Tablet" demandPopin="true">
+              <Text text="申請者" />
+            </Column>
+            <Column minScreenWidth="Tablet" demandPopin="true">
+              <Text text="承認者" />
+            </Column>
+          </columns>
+          <items>
+            <ColumnListItem type="Navigation">
+              <cells>
+                <ObjectIdentifier title="{requests>requestNo}" />
+                <ObjectStatus text="{path: 'requests>status', formatter: '.formatStatusText'}" state="{path: 'requests>status', formatter: '.formatStatusState'}" />
+                <Text text="{requests>content}" />
+                <Text text="{requests>applicant}" />
+                <Text text="{requests>approver}" />
+              </cells>
+            </ColumnListItem>
+          </items>
+        </Table>
+      </VBox>
+    </content>
+  </Page>
+</mvc:View>
