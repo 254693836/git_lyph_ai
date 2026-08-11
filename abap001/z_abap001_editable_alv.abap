@@ -107,22 +107,22 @@ FORM set_cell_style CHANGING cs_alv TYPE ty_alv.
   ENDIF.
 
   IF cs_alv-name IS INITIAL.
-    APPEND VALUE #( fieldname = 'NAME' style = cl_gui_alv_grid=>mc_style_enabled ) TO cs_alv-celltab.
+    INSERT VALUE #( fieldname = 'NAME' style = cl_gui_alv_grid=>mc_style_enabled ) INTO TABLE cs_alv-celltab.
   ENDIF.
   IF cs_alv-category IS INITIAL.
-    APPEND VALUE #( fieldname = 'CATEGORY' style = cl_gui_alv_grid=>mc_style_enabled ) TO cs_alv-celltab.
+    INSERT VALUE #( fieldname = 'CATEGORY' style = cl_gui_alv_grid=>mc_style_enabled ) INTO TABLE cs_alv-celltab.
   ENDIF.
   IF cs_alv-quantity IS INITIAL.
-    APPEND VALUE #( fieldname = 'QUANTITY' style = cl_gui_alv_grid=>mc_style_enabled ) TO cs_alv-celltab.
+    INSERT VALUE #( fieldname = 'QUANTITY' style = cl_gui_alv_grid=>mc_style_enabled ) INTO TABLE cs_alv-celltab.
   ENDIF.
   IF cs_alv-unit_price IS INITIAL.
-    APPEND VALUE #( fieldname = 'UNIT_PRICE' style = cl_gui_alv_grid=>mc_style_enabled ) TO cs_alv-celltab.
+    INSERT VALUE #( fieldname = 'UNIT_PRICE' style = cl_gui_alv_grid=>mc_style_enabled ) INTO TABLE cs_alv-celltab.
   ENDIF.
   IF cs_alv-currency IS INITIAL.
-    APPEND VALUE #( fieldname = 'CURRENCY' style = cl_gui_alv_grid=>mc_style_enabled ) TO cs_alv-celltab.
+    INSERT VALUE #( fieldname = 'CURRENCY' style = cl_gui_alv_grid=>mc_style_enabled ) INTO TABLE cs_alv-celltab.
   ENDIF.
   IF cs_alv-remark IS INITIAL.
-    APPEND VALUE #( fieldname = 'REMARK' style = cl_gui_alv_grid=>mc_style_enabled ) TO cs_alv-celltab.
+    INSERT VALUE #( fieldname = 'REMARK' style = cl_gui_alv_grid=>mc_style_enabled ) INTO TABLE cs_alv-celltab.
   ENDIF.
 ENDFORM.
 
@@ -160,5 +160,4 @@ FORM display_alv.
               it_fieldcatalog = lt_fcat ).
 
   WRITE space.
-  CALL SCREEN 0.
 ENDFORM.
