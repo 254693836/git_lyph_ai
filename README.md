@@ -19,3 +19,4 @@ RAP（ABAP RESTful Application Programming Model）は、SAPのABAP環境で、O
 旅行管理を例にすると、CDSで旅行や予約のデータを表し、Behaviorで旅行の登録・変更や入力チェックを定義し、ODataサービスを通じて画面から操作する構成になります。ドラフトを有効にすれば、編集途中のデータを一時保存することもできます。
 
 なお、現在このリポジトリにはRAPのCDSやBehavior定義は含まれていません。この節はRAPの概要説明です。
+テスト用：READMEの更新をコミットしてpushする動作を確認します。
